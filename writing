@@ -1,0 +1,47 @@
+function addEmployee($employee_id, $forename, $surname, $email, $team) {
+    $file = fopen("employees.csv", "a"); // Open in "a" mode to append new lines
+    if ($file !== false) {
+        $employee_data = [$employee_id, $forename, $surname, $email, $team];
+        fputcsv($file, $employee_data); // Write the array as a new CSV row
+        fclose($file); // Close the file after writing
+        echo "Employee added successfully!";
+    } else {
+        echo "Failed to open file.";
+    }
+}
+
+function addRegistration($email, $password) {
+    $file = fopen("registrations.csv", "a");
+    if ($file !== false) {
+        $registration_data = [$email, password_hash($password, PASSWORD_DEFAULT)]; // Use password hashing for security
+        fputcsv($file, $registration_data);
+        fclose($file);
+        echo "Registration added successfully!";
+    } else {
+        echo "Failed to open file.";
+    }
+}
+
+function addRole($employee_id, $role) {
+    $file = fopen("roles.csv", "a");
+    if ($file !== false) {
+        $role_data = [$employee_id, $role];
+        fputcsv($file, $role_data);
+        fclose($file);
+        echo "Role added successfully!";
+    } else {
+        echo "Failed to open file.";
+    }
+}
+
+function addTask($task_id, $employee_id, $description, $topic, $status) {
+    $file = fopen("tasks.csv", "a");
+    if ($file !== false) {
+        $task_data = [$task_id, $employee_id, $description, $topic, $status];
+        fputcsv($file, $task_data);
+        fclose($file);
+        echo "Task added successfully!";
+    } else {
+        echo "Failed to open file.";
+    }
+}
