@@ -67,13 +67,55 @@ function read_csv($key, $file) {
   return $data;
 }
 
-try {
-  $csvFile = './employees.csv';
-  $key = 'team';
-  $data = read_csv($key, $csvFile);
+// USAGE: only use the read_csv function from the file.
+/*
+Inputs: $key (string), $file (string) 
 
-  print_r($data);
+(example csv) - employees.csv:
 
-} catch (Exception $e) {
-  echo "Error: " . $e->getMessage();
+employee_id,forename,surname,email,team
+11029,testfore,testsur,email@email.com,07
+1234,testfore,testsurrr,email2@email.com,07
+
+If I choose 'employee_id' as the key it will result in the following dictionary:
+
+{
+  11029: {
+    employee_id: 11029,
+    forename: testfore,
+    surname: testsur,
+    email: email@email.com,
+    team: 07
+  },
+  1234: {
+    employee_id: 1234,
+    forename: testfore,
+    surname: testsurrr,
+    email: email2@email.com,
+    team: 07
+  }
 }
+
+if I choose 'team' as the key it will result in the following dictionary:
+
+{
+  07: [
+      {
+        employee_id: 1234,
+        forename: testfore,
+        surname: testsurrr,
+        email: email2@email.com,
+        team: 07
+      },
+      {
+        employee_id: 11029,
+        forename: testfore,
+        surname: testsur,
+        email: email@email.com,
+        team: 07
+      }
+  ]
+}
+
+because there are multiple employees in team 07, you get an array of dictionaries.
+*/
