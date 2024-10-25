@@ -1,5 +1,26 @@
+
+body{
+    background: #f7d5f8;
+    align-items: center;
+ }
+ 
+
+ *{
+    font-family: sans-serif;
+    margin:0; 
+    padding:0;
+    box-sizing: border-box;
+    outline: none; 
+    border:none;
+    text-decoration: none;
+    transition: .2s linear;
+    text-transform: capitalize;
+ }
+
+
+
 .header {
-    background-color: #fe89f1;
+    background-color: #f99bee;
     padding: 30px;
 }
 .navbar {
@@ -13,21 +34,36 @@
     height: 50px;
 }
 
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    margin-left: auto; /* Pushes navbar-right to the far right */
+    margin-right: 20px;
+}
+
 /* Dropdown styling */
 .dropdown {
     position: relative;
 }
 .dropdown-toggle {
-    display: inline-block;
+    display: flex; /* Use flex for icon and text alignment */
+    align-items: center; /* Center icon and text vertically */
     padding: 10px 20px;
-    background-color: #f0f0f0; /* Background for button appearance */
-    color: #333;
-    border-radius: 5px;
+    background-color: #f45dd8; /* Button color */
+    color: white; /* Text color */
+    border-radius: 25px; /* Makes the button rounded */
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+    font-weight: 500; /* Optional: makes the text slightly bolder */
 }
+
 .dropdown-toggle:hover {
-    background-color: #e0e0e0; /* Highlighted background on hover */
+    background-color:#d12a9f; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+.dropdown-toggle i {
+    margin-right: 8px; /* Space between icon and text */
 }
 
 /* Dropdown menu styling */
@@ -53,18 +89,32 @@
     text-decoration: none;
     transition: background-color 0.3s;
 }
-.dropdown-menu a:hover {
+.dropdown-menu a:hover { 
     background-color: #f0f0f0;
 }
 
 /* Profile icon styling */
 .profile-icon {
     position: relative;
+    cursor: pointer;
+    color: #333;
+    display: inline-flex; /* Align icon and menu properly */
+    align-items: center; /* Center vertically */
+    transition: transform 0.3s; /* Smooth transition for scaling */
 }
-.profile-icon img {
-    height: 30px;
-    border-radius: 50%;
+
+.profile-icon:hover {
+    transform: scale(1.1); /* Slightly increase size on hover */
 }
+
+.profile-icon i {
+    font-size: 32px; /* Size of the icon */
+}
+
+.profile-icon:hover i {
+    color: #555; /* Optional color change on hover */
+}
+
 .profile-menu {
     display: none;
     position: absolute;
@@ -73,23 +123,27 @@
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
+    width: 150px;
+    padding: 5px 0;
 }
+
 .profile-icon:hover .profile-menu {
-    display: block;
+    display: block; /* Show the menu on hover */
 }
-.profile-menu a {
+
+.profile-menu a,
+.username {
     padding: 10px 15px;
     display: block;
     color: #333;
     text-decoration: none;
 }
+
 .profile-menu a:hover {
     background-color: #f0f0f0;
 }
 
+/* Username styling */
 .username {
-    display: block;
-    padding: 10px 15px;
-    color: #333;
     font-weight: bold;
 }
