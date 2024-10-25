@@ -1,0 +1,95 @@
+.header {
+    background-color: #fe89f1;
+    padding: 30px;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Logo styling */
+.logo img {
+    height: 50px;
+}
+
+/* Dropdown styling */
+.dropdown {
+    position: relative;
+}
+.dropdown-toggle {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f0f0f0; /* Background for button appearance */
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.dropdown-toggle:hover {
+    background-color: #e0e0e0; /* Highlighted background on hover */
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px 0;
+    min-width: 150px;
+    z-index: 1000;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu a {
+    padding: 10px 15px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Profile icon styling */
+.profile-icon {
+    position: relative;
+}
+.profile-icon img {
+    height: 30px;
+    border-radius: 50%;
+}
+.profile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+.profile-icon:hover .profile-menu {
+    display: block;
+}
+.profile-menu a {
+    padding: 10px 15px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+}
+.profile-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.username {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    font-weight: bold;
+}

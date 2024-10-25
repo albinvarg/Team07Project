@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 
 
@@ -15,7 +16,7 @@
 
 
        <div class="dropdown">
-            <a href="#filter" class="dropdown-toggle">Filter</a>
+       <span class="dropdown-toggle">Filter</span>
             <div class="dropdown-menu">
                 <a href="#filter1">Option 1</a>
                 <a href="#filter2">Option 2</a>
@@ -24,11 +25,9 @@
        </div>
        
        <div class="profile-icon">
-            <a href="#profile">
-                <img src="profile-icon.png" alt="Profile" /> <!-- Replace "profile-icon.png" with your profile icon path -->
-            </a>
+            <img src="profile-icon.png" alt="Profile Icon" /> <!-- Replace "profile-icon.png" with your profile icon path -->
             <div class="profile-menu">
-                <span class="username"></span>
+                <span class="username">username</span>
                 <a href="#logout">Logout</a>
             </div>
         </div>
