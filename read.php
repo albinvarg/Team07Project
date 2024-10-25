@@ -36,6 +36,7 @@ function csvToArray($filename, $delimiter = ',') {
 // if the key isn't unique the values will be an array of associative arrays
 function rekey_data($key, $arr) {
 
+  $data = [];
 
   foreach($arr as $assoc_arr) {
     $data[$assoc_arr[$key]][] = $assoc_arr;
