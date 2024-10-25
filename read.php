@@ -35,11 +35,12 @@ function csvToArray($filename, $delimiter = ',') {
 // array is in the form [key => [values]] where the key is one of the values of the associative array
 // if the key isn't unique the values will be an array of associative arrays
 function rekey_data($key, $arr) {
-  $data = array();
+
 
   foreach($arr as $assoc_arr) {
     $data[$assoc_arr[$key]][] = $assoc_arr;
   }
+
 
   //check if the key is unique
   $unique = true;
@@ -66,6 +67,10 @@ function read_csv($key, $file) {
 
   return $data;
 }
+
+
+$data = read_csv('task_id', './tasks.csv');
+
 
 // USAGE: only use the read_csv function from the file.
 /*
