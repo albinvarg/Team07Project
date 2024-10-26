@@ -113,3 +113,8 @@ function updateTaskStatus($task_id, $status) {
   updateTask($task_id, $task);
 }
 
+newTask(1, 1, 'user2 task', 'topic3');
+newTask(1, 2, 'user2 task efhjdsf', 'topic3');
+newTask(1, 2, 'user2 task sdfkj', 'topic3');
+newTask(1, 3, 'user2 task skdjf', 'topic3');
+newTask(1, 3, 'user2 task jdfk', 'topic3');
