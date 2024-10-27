@@ -36,11 +36,66 @@
                 </div>
             </div>
 
-       </div>
-        
+       </div>  
     </nav>
     </header>
 
+    <main>
+        <section class="task-board">
+            <div class="board">
+                <div class="column">
+                    <h2>To Do</h2>
+                    <div class="card">
+                        <p>Task 1</p> <!-- The names of the tasks should be here -->
+                        <div class="details">
+                            <span>👤 2</span> <!-- this can be replaced with the number of people -->
+                            <span>📅 July 22</span> <!-- this should changed later, it is the date for the tasks-->
+                        </div>
+                    </div>
+                    <div class="card">
+                        <p>Task 2</p>
+                        <div class="details">
+                            <span>👤 1</span>
+                            <span>📅 Sep 29</span>
+                        </div>
+                    </div>
+                    <div class="add-card">+ Add a card</div>
+                </div>
+                
+                <div class="column">
+                    <h2>Doing</h2>
+                    <div class="card">
+                        <p>Task 3</p>
+                        <div class="details">
+                            <span>👤 3</span>
+                            <span>📅 July 15</span> 
+                        </div>
+                    </div>
+                    <div class="add-card">+ Add a card</div>
+                </div>
+
+                <div class="column">
+                    <h2>Done</h2>
+                    <div class="card">
+                        <p>Task 4</p>
+                        <div class="details">
+                            <span>👤 2</span>
+                            <span>📅 June 18</span>
+                        </div>
+                    </div>
+                    <div class="add-card">+ Add a card</div>
+                </div>
+
+
+                 <!-- Additional column for progress tracking -->
+                 <div class="column empty-column">
+                    <!-- Write the HTML for the progress tracker here!!! -->
+                </div>
+
+
+            </div>
+        </section>
+    </main>
 
 
 
