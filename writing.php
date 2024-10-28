@@ -3,11 +3,11 @@
 require_once './read.php';
 
 function addEmployee($employee_id, $forename, $surname, $email, $team) {
-    $file = fopen("employees.csv", "a"); // Open in "a" mode to append new lines
+    $file = fopen("employees.csv", "a"); //append new lines
     if ($file !== false) {
         $employee_data = [$employee_id, $forename, $surname, $email, $team];
-        fputcsv($file, $employee_data); // Write the array as a new CSV row
-        fclose($file); // Close the file after writing
+        fputcsv($file, $employee_data); //write the array as a new row
+        fclose($file);
         echo "Employee added successfully!";
     } else {
         echo "Failed to open file.";
@@ -17,7 +17,7 @@ function addEmployee($employee_id, $forename, $surname, $email, $team) {
 function addRegistration($email, $password) {
     $file = fopen("registrations.csv", "a");
     if ($file !== false) {
-        $registration_data = [$email, $password];// Use password hashing for security
+        $registration_data = [$email, $password];//use password hashing for security
         fputcsv($file, $registration_data);
         fclose($file);
         echo "Registration added successfully!";
