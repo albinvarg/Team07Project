@@ -44,12 +44,7 @@ function rekey_data($key, $arr) {
 
 
   //check if the key is unique
-  $unique = true;
-  foreach($data as $key => $value) {
-    if (count($value) > 1) {
-      $unique = false;
-    }
-  }
+  $unique = is_key_unique($data);
 
   //if the key is unique we don't need the values to be an array of associative arrays
   if ($unique) {
@@ -61,6 +56,17 @@ function rekey_data($key, $arr) {
   return $data;
 }
 
+//check if the key is unique
+function is_key_unique($data) {
+  foreach($data as $key => $value) {
+    if (count($value) > 1) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 //combines csvToArray and rekey_data into one function, this function should be the one being used not the other ones.
 function read_csv($key, $file) {
   $raw_data = csvToArray($file);
@@ -70,7 +76,6 @@ function read_csv($key, $file) {
 }
 
 
-$data = read_csv('task_id', './tasks.csv');
 
 
 // USAGE: only use the read_csv function from the file.

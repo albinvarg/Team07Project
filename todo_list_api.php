@@ -1,5 +1,7 @@
-
 <?php
+//USAGE: url: /todo_list_api.php?employee_id=0 
+//(You put the employee id in the url)
+
 // Set headers to allow CORS and JSON response
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -49,3 +51,5 @@ if (isset($_GET['employee_id'])) {
     http_response_code(400); // Bad request
     echo json_encode(["error" => "Missing required parameters"]);
 }
+
+
