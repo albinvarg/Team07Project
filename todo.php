@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL & ~E_WARNING);
 
 require_once("./read.php");
 require_once("./get_user_info.php");
@@ -44,6 +45,3 @@ function getUserTasks($employee_id) {
 
   return $user_tasks;
 }
-
-
-
