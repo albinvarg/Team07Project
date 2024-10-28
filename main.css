@@ -149,8 +149,6 @@ body{
 }
 
 /* Task Board Styling */
-
-
 .task-board {
     display: flex;
     justify-content: center;
@@ -206,4 +204,20 @@ body{
     text-align: center;
     cursor: pointer;
     margin-top: 20px;
+}
+
+/* Progress checker styling */
+.progress-checker {
+    margin: 20px 0;
+    padding: 10px 0;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: #00ff08;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
 }
