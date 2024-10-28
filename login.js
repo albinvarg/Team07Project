@@ -1,21 +1,43 @@
 // Get elements
 const signupBtn = document.getElementById('signupBtn');
-const popup = document.getElementById('popup');
-const closeBtn = document.querySelector('.close');
+const loginPopup = document.getElementById('loginPopup');
+const signupPopup = document.getElementById('signupPopup');
+const closeButtons = document.querySelectorAll('.close');
+const openSignup = document.getElementById('openSignup');
+const openLogin = document.getElementById('openLogin');
 
-// Show popup when signup button is clicked
+// Show login popup when the main signup button is clicked
 signupBtn.onclick = function() {
-    popup.style.display = 'flex';
+    loginPopup.style.display = 'flex';
 };
 
-// Hide popup when close button is clicked
-closeBtn.onclick = function() {
-    popup.style.display = 'none';
+// Show signup popup and hide login popup when "Sign up" link is clicked
+openSignup.onclick = function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    loginPopup.style.display = 'none';
+    signupPopup.style.display = 'flex';
 };
 
-// Hide popup when clicking outside of the popup content
+// Show login popup and hide signup popup when "Login" link is clicked
+openLogin.onclick = function(event) {
+    event.preventDefault();
+    signupPopup.style.display = 'none';
+    loginPopup.style.display = 'flex';
+};
+
+// Close popups when close button is clicked
+closeButtons.forEach(button => {
+    button.onclick = function() {
+        loginPopup.style.display = 'none';
+        signupPopup.style.display = 'none';
+    };
+});
+
+// Close popups when clicking outside the popup content
 window.onclick = function(event) {
-    if (event.target === popup) {
-        popup.style.display = 'none';
+    if (event.target === loginPopup) {
+        loginPopup.style.display = 'none';
+    } else if (event.target === signupPopup) {
+        signupPopup.style.display = 'none';
     }
 };
