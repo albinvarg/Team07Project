@@ -19,7 +19,7 @@
             <span class="close">&times;</span>
             <div class="popup-content">
                 <h2 class="login-title">WELCOME</h2>
-                <form>
+                <form id="loginForm">
                     <div class="wrap-input">
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" class="input" required>

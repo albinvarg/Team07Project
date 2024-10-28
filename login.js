@@ -32,6 +32,16 @@ closeButtons.forEach(button => {
         signupPopup.style.display = 'none';
     };
 });
+document.addEventListener("DOMContentLoaded", function () { 
+    const loginForm = document.getElementById("loginForm");
+    
+    loginForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form behavior
+
+        const formData = new FormData(loginForm); // Access form data
+        alert(formData.get("email"));
+    });
+});
 
 // Close popups when clicking outside the popup content
 window.onclick = function(event) {
