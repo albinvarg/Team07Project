@@ -222,7 +222,7 @@ body{
     border-radius: 5px;
 }
 
-.progress-bar {
+.progress-bar-container {
     height: 20px;
     background-color: #00ff08;
     border-radius: 5px;
@@ -309,4 +309,16 @@ body{
 
 .pop-content button:hover {
     background-color: #218838;
+}
+
+
+#progress-bar {
+    height: 24px;
+    background-color: green;
+    width: 20%; /*To be changed dynamically*/
+}
+
+#progress-percentage {
+    text-align: center;
+    margin-top: 5px;
 }
