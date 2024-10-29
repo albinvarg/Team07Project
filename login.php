@@ -15,6 +15,7 @@
 
     <?php
     require_once('./read.php');
+    require_once('./writing.php');
 
     // Checks if the user inputted a valid email and its corresponding password
     function validInputs($inpEmail, $inpPword) {
@@ -29,12 +30,36 @@
         return false;
     }
 
+    // Checks if the user inputted a unique email
+    function uniqueEmail($inpEmail) {
+        $registrationArray = csvToArray("registrations.csv");
+
+        // Loops through registration.csv
+        for ($lineNum = 0; $lineNum < count($registrationArray); $lineNum++) {
+            if($registrationArray[$lineNum]['email'] == $inpEmail){
+                return false;
+            }
+        }
+        return true;
+    }
+
     // Calls the function to validate user inputs after the form is submitted
     if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['submit'])) {
-        $email = $_POST['email'];
-        $pword = $_POST['password'];
 
-        $valid = validInputs($email, $pword);
+        // Different function called depending on if the login or signup form was submitted
+        if(isset($_POST['form_name']) && $_POST['form_name'] === 'login'){
+            $email = $_POST['email'];
+            $pword = $_POST['password'];
+            $validLogin = validInputs($email, $pword);
+        }
+        elseif(isset($_POST['form_name']) && $_POST['form_name'] === 'signup'){
+            $email = $_POST['signupEmail'];
+            $pword = $_POST['signupPassword'];
+            $validSignup = uniqueEmail($email);
+            if($validSignup){
+                addRegistration($email, $pword);
+            }
+        }
     }
     ?>
 
@@ -45,6 +70,7 @@
             <div class="popup-content">
                 <h2 class="login-title">WELCOME</h2>
                 <form method="POST" action="login.php">
+                    <input type="hidden" name="form_name" value="login">
                     <div class="wrap-input">
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" class="input" required>
@@ -72,6 +98,7 @@
             <div class="popup-content">
                 <h2 class="signup-title">Create Account</h2>
                 <form method="POST" action="login.php">
+                <input type="hidden" name="form_name" value="signup">
                     <div class="wrap-input">
                         <label for="signupEmail">Email:</label>
                         <input type="email" id="signupEmail" name="signupEmail" class="input" required>

@@ -112,7 +112,3 @@ function updateTaskStatus($task_id, $status) {
   $task['status'] = $stat;
   updateTask($task_id, $task);
 }
-
-addRole(2, false);
-addRole(3, false);
-addRole(4, false);
