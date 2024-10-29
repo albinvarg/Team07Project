@@ -87,11 +87,14 @@
                 </div>
 
 
-                 <!-- Additional column for progress tracking -->
-                 <div class="column empty-column">
+                <!-- Additional column for progress tracking -->
+                <div class="column empty-column">
                     <h2>Progress Tracker</h2>
                     <div class="progress-checker">
-                        <div class="progress-bar" id="progress-bar">68%</div> <!-- JavaScript needed to make progress bar change based on percentage -->
+                        <div id="progress-bar-container">
+                            <div id="progress-bar"></div><!-- JavaScript needed to make progress bar change based on percentage -->
+                        </div>
+                        <p id="progress-percentage">20%</p> <!-- JavaScript needed to make percentage change based on tasks completed -->
                     </div>
                 </div>
 
@@ -99,7 +102,6 @@
             </div>
         </section>
     </main>
-
 
 
 
