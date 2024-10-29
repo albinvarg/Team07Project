@@ -13,13 +13,38 @@
         <img src="signup-icon.png" alt="Signup Icon">
     </button>
 
+    <?php
+    require_once('./read.php');
+
+    // Checks if the user inputted a valid email and its corresponding password
+    function validInputs($inpEmail, $inpPword) {
+        $registrationArray = csvToArray("registrations.csv");
+
+        // Loops through registration.csv
+        for ($lineNum = 0; $lineNum < count($registrationArray); $lineNum++) {
+            if($registrationArray[$lineNum]['email'] == $inpEmail && $registrationArray[$lineNum]['password'] == $inpPword){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Calls the function to validate user inputs after the form is submitted
+    if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['submit'])) {
+        $email = $_POST['email'];
+        $pword = $_POST['password'];
+
+        $valid = validInputs($email, $pword);
+    }
+    ?>
+
     <!-- Login Popup -->
     <div id="loginPopup" class="popup">
         <div class="popup-wrapper">
             <span class="close">&times;</span>
             <div class="popup-content">
                 <h2 class="login-title">WELCOME</h2>
-                <form id="loginForm">
+                <form method="POST" action="login.php">
                     <div class="wrap-input">
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" class="input" required>
@@ -29,7 +54,7 @@
                         <input type="password" id="password" name="password" class="input" required>
                     </div>
                     <div class="container-btn">
-                        <button class="login-btn" type="submit">Login</button>
+                        <button class="login-btn" type="submit" name="submit">Login</button>
                     </div>
                     <div class="container-text">
                         <span> Don't have an account? </span>
@@ -46,7 +71,7 @@
             <span class="close">&times;</span>
             <div class="popup-content">
                 <h2 class="signup-title">Create Account</h2>
-                <form>
+                <form method="POST" action="login.php">
                     <div class="wrap-input">
                         <label for="signupEmail">Email:</label>
                         <input type="email" id="signupEmail" name="signupEmail" class="input" required>
@@ -56,7 +81,7 @@
                         <input type="password" id="signupPassword" name="signupPassword" class="input" required>
                     </div>
                     <div class="container-btn">
-                        <button class="signup-btn" type="submit">Sign Up</button>
+                        <button class="signup-btn" type="submit" name="submit">Sign Up</button>
                     </div>
                     <div class="container-text">
                         <span> Already have an account? </span>
@@ -66,7 +91,6 @@
             </div>
         </div>
     </div>
-
     <script src="login.js"></script>
 </body>
 </html>
