@@ -48,7 +48,7 @@ function addRole($employee_id, $role) {
     }
 }
 
-function newTask($task_id, $employee_id, $description, $topic) {
+function newTask($task_id, $employee_id, $description, $topic, $date) {
   $status = 'not started';
     $file = fopen("tasks.csv", "a"); //append new lines
     if ($file !== false) {
