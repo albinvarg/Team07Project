@@ -44,7 +44,7 @@
     <main>
         <section class="task-board">
             <div class="board">
-                <div class="column">
+                <div class="column" id="to-do-column">
                     <h2>To Do</h2>
                     <div class="card">
                         <p>Task 1</p> <!-- The names of the tasks should be here -->
@@ -63,7 +63,7 @@
                     <div class="add-card" onclick="openPopUp()">+ Add a card</div>
                 </div>
                 
-                <div class="column">
+                <div class="column" id="doing-column"> 
                     <h2>Doing</h2>
                     <div class="card">
                         <p>Task 3</p>
@@ -75,7 +75,7 @@
                     <div class="add-card" onclick="openPopUp()">+ Add a card</div>
                 </div>
 
-                <div class="column">
+                <div class="column" id="done-column">
                     <h2>Done</h2>
                     <div class="card">
                         <p>Task 4</p>

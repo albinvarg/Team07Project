@@ -48,12 +48,12 @@ function addRole($employee_id, $role) {
     }
 }
 
-function newTask($task_id, $employee_id, $description, $topic) {
+function newTask($task_id, $employee_id, $description, $topic, $date) {
   $status = 'not started';
     $file = fopen("tasks.csv", "a"); //append new lines
     if ($file !== false) {
-        $task_data = [$task_id, $employee_id, $description, $topic, $status];
-        fputcsv($file, $task_data); //write the array as a new row
+        $task_data = [$task_id, $employee_id, $description, $topic, $date, $status];
+        fputcsv($file, $task_data);
         fclose($file);
         echo "Task added";
     } else {
