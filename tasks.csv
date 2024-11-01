@@ -1,8 +1,4 @@
-task_id,employee_id,description,topic,date,status
-1234,0,"newer task","topic 2",2012-05-05,started
-1233,0,"newer task","topic 2",2093-08-09,started
-1,1,"user2 task",topic3,2019-09-20,"not started"
-1,2,"user2 task efhjdsf",2005-23-20,topic3,"not started"
-1,2,"user2 task sdfkj",2005-30-19,topic3,"not started"
-1,5,"user2 task skdjf",2006-04-03,topic3,"not started"
-1,5,"user2 task jdfk",2004-30-03,topic3,"not started"
+task_id,employee_id,name,description,topic,date,status
+1,0,'Task1','this is my first task','Cat1',2023-05-05,'completed'
+2,0,'Task2','second task','Cat1',2023-01-05,'started'
+3,0,'Task4','final task','Cat3',2024-05-05,'not started'
