@@ -8,6 +8,7 @@ header("Content-Type: application/json; charset=UTF-8");
 //header("Access-Control-Allow-Methods: POST");
 
 require_once('./todo.php');
+require_once('./get_user_info.php');
 
 /*
 // Check if the request method is POST
@@ -44,6 +45,9 @@ if (isset($_GET['employee_id'])) {
 
     // Example response
     $response = getUserTasks($employee_id);
+    $role = getRoleById($employee_id);
+
+    $response['role'] = $role;
 
     // Send a JSON response
     echo json_encode($response);

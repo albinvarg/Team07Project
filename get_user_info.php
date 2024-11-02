@@ -79,3 +79,9 @@ function getPasswordByEmail($email) {
 
   return false;
 }
+
+function getRoleById($id) {
+  $roles = read_csv('employee_id', 'roles.csv');
+
+  return $roles[$id]['role'];
+}

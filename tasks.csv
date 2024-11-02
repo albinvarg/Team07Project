@@ -1,4 +1,8 @@
 task_id,employee_id,name,description,topic,date,status
 1,0,'Task1','this is my first task','Cat1',2023-05-05,'completed'
 2,0,'Task2','second task','Cat1',2023-01-05,'started'
-3,0,'Task4','final task','Cat3',2024-05-05,'not started'
+3,0,'Task4','final task','Cat3',2024-05-05,'completed'
+4,1,'Task5','Task5','Do task 5',2024-05-06,'completed'
+5,1,'Task6','Task5','Do task 5',2024-05-06,'completed'
+6,1,'Task7','Task5','Do task 5',2024-05-06,'not started'
+7,1,'Task8','Task5','Do task 5',2024-05-06,'not started'
