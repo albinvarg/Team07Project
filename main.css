@@ -34,9 +34,18 @@ body{
     justify-content: space-around;
 }
 
-/* Logo styling */
-.logo img {
-    height: 50px;
+.navbar-logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 125px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for logo */
+.navbar-logo:hover {
+    color: #f45dd8; 
 }
 
 .navbar-right {
@@ -52,23 +61,23 @@ body{
     position: relative;
 }
 .dropdown-toggle {
-    display: flex; /* Use flex for icon and text alignment */
-    align-items: center; /* Center icon and text vertically */
+    display: flex; 
+    align-items: center; 
     padding: 10px 20px;
     background-color: #f45dd8; /* Button color */
-    color: white; /* Text color */
-    border-radius: 25px; /* Makes the button rounded */
+    color: white; 
+    border-radius: 25px; 
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    font-weight: 500; /* Optional: makes the text slightly bolder */
+    font-weight: 500; 
 }
 
 .dropdown-toggle:hover {
-    background-color:#d12a9f; /* Darker shade on hover */
+    background-color:#d12a9f; 
     transform: translateY(-2px); /* Slight lift effect on hover */
 }
 .dropdown-toggle i {
-    margin-right: 8px; /* Space between icon and text */
+    margin-right: 8px; 
 }
 
 /* Dropdown menu styling */
@@ -98,13 +107,28 @@ body{
     background-color: #f0f0f0;
 }
 
+
+.forum-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.forum {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
 /* Profile icon styling */
 .profile-icon {
     position: relative;
     cursor: pointer;
     color: #333;
-    display: inline-flex; /* Align icon and menu properly */
-    align-items: center; /* Center vertically */
+    display: inline-flex; 
+    align-items: center; 
     transition: transform 0.3s; /* Smooth transition for scaling */
 }
 
@@ -113,11 +137,11 @@ body{
 }
 
 .profile-icon i {
-    font-size: 32px; /* Size of the icon */
+    font-size: 32px; 
 }
 
 .profile-icon:hover i {
-    color: #555; /* Optional color change on hover */
+    color: #555; 
 }
 
 .profile-menu {
@@ -133,7 +157,7 @@ body{
 }
 
 .profile-icon:hover .profile-menu {
-    display: block; /* Show the menu on hover */
+    display: block; 
 }
 
 .profile-menu a,
@@ -197,7 +221,7 @@ body{
 
 .details {
     display: flex;
-    flex-direction: column; /* Stacks items vertically */
+    flex-direction: column; 
     align-items: flex-start; /* Aligns text to the left */
     font-size: 12px;
     color: #666;

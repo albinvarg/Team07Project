@@ -15,9 +15,10 @@
     <header class="header">
 
     <nav class="navbar">
-       <a href="#home"></a> <!-- this is where the logo/name will go -->
+       <a href="#home" class="navbar-logo">Done & Dusted</a> <!-- this is where the logo/name will go -->
 
        <div class="navbar-right">
+
             <div class="dropdown"> <!-- this is the filter option, we won't implement the filters in the prototype -->
                 <span class="dropdown-toggle">
                     <i class="fa fa-filter"></i> Filter
@@ -28,6 +29,13 @@
                     <a href="#filter3">Option 3</a>
                 </div>
             </div>
+
+            <a href="forum.php" class="forum-link"> <!-- Link to the forum page -->
+                <div class="forum">
+                    <i class="fa fa-comments"></i> <!-- Icon for the forum-->
+                    Forum
+                </div>
+            </a>
             
             <div class="profile-icon">
             <i class="fa fa-user"></i>
@@ -95,7 +103,7 @@
                         <h2>Add a New Card</h2>
                         <form id="cardForm">
                             <label for="taskName">Task Name:</label>
-                            <input type="text" id="taskName" name="taskName" value="Task 10" required>
+                            <input type="text" id="taskName" name="taskName" required>
 
 
                             <label for="category">Category:</label>
