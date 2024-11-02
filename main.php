@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-
 <body>
-<script src="bar.js"></script>
+
     <header class="header">
 
     <nav class="navbar">
@@ -126,15 +125,14 @@
                         <div id="progress-bar-container">
                             <div id="progress-bar"></div><!-- JavaScript needed to make progress bar change based on percentage -->
                         </div>
-                        <p id="progress-percentage">20%</p> <!-- JavaScript needed to make percentage change based on tasks completed -->
+                        <div id="progress-percentage"></div> <!-- JavaScript needed to make percentage change based on tasks completed -->
                     </div>
                 </div>
-                
-
             </div>
         </section>
     </main>
 
     <script src="addCard.js"></script>
+    <script src="bar.js"></script>
 </body>
 </html>
