@@ -3,7 +3,6 @@
     --progress-width: 100%;
 }
 
-
 body{
     background: #f7d5f8;
     align-items: center;
@@ -23,11 +22,11 @@ body{
     font-family: Arial, sans-serif;
  }
 
-
 .header {
     background-color: #f99bee;
     padding: 30px;
 }
+
 .navbar {
     display: flex;
     align-items: center;
@@ -219,21 +218,7 @@ body{
     margin-top: 20px;
 }
 
-/* Progress checker styling */
-.progress-checker {
-    margin: 20px 0;
-    padding: 10px 0;
-    background-color: #f3f3f3;
-    border-radius: 5px;
-}
 
-.progress-bar-container {
-    height: 20px;
-    background-color: #00ff08;
-    border-radius: 5px;
-    text-align: center;
-    color: white;
-}
 
 .new-card-pop {
     display: none; 
@@ -315,15 +300,31 @@ body{
     background-color: #218838;
 }
 
+/* Progress checker styling */
+.progress-checker {
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#progress-bar-container {
+    width: 100%;
+    background-color: #e0e0e0; /* Light grey background for the progress bar */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Prevent overflow of the inner bar */
+}
 
 #progress-bar {
-    height: 24px;
-    background-color: var(--progress-bar-color);
-    width: var(--progress-width);
-    border-radius: 5px;
+    height: 30px; /* Set the height of the progress bar */
+    width: 0;
+    transition: width 0.5s ease; /* Transition for width changes */
 }
 
 #progress-percentage {
     text-align: center;
     margin-top: 5px;
+    font-weight: bold; 
+    color: #333;
 }
