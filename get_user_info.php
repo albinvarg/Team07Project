@@ -89,7 +89,11 @@ function getPasswordByEmail($email) {
 
 function getRoleById($id) {
   $roles = read_csv('employee_id', 'roles.csv');
+  
+  if (isset($roles[$id]) && $roles[$id]) {
+    return $roles[$id]['role'];
+  }
 
-  return $roles[$id]['role'];
+  return false;
 }
 

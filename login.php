@@ -15,7 +15,6 @@
     require_once('./get_user_info.php');
 
     // Checks if the user inputted a valid email and its corresponding password
-    // Checks if the user inputted a valid email and its corresponding password
     function validLoginInputs($inpEmail, $inpPword) {
         if(getPasswordByEmail($inpEmail) == $inpPword){
             return true;
@@ -40,9 +39,12 @@
             if($employeeArray[$lineNum]['email'] == $inpEmail){
                 // Checks password strength and the email is an employees
 
-               // $userId = getRol
+                //$ans2 = getRoleById($userId);
+                $ans1 = getIDByEmail($inpEmail);
                /* if(getRoleById($userId) == "member" && strlen($inpPword) > 7 && preg_match('/[A-Z]/', $inpPword) && preg_match('/[a-z]/', $inpPword) &&  preg_match('/[\W_]/', $inpPword)){
                 */
+                echo "<script type='text/javascript'>alert(".json_encode($ans1).");</script>";
+
                 return true;
                 
                     
