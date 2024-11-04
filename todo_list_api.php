@@ -47,9 +47,9 @@ if (isset($_SESSION['employee_id'])) {
 
     // Example response
   $response = getUserTasks($employee_id);
-  $role = getRoleById($employee_id);
+//   $role = getRoleById($employee_id);
 
-    $response['role'] = $role;
+//     $response['role'] = $role;
 
     // Send a JSON response
     echo json_encode($response);

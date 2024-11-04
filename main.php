@@ -59,9 +59,6 @@ $name = getNameById($_SESSION['employee_id']);
     </header>
 
     <main>
-        <div class="tab-content">
-        </div>
-
         <section class="task-board">
             <div class="board">
                 <div class="column" id="to-do-column">
@@ -153,6 +150,8 @@ $name = getNameById($_SESSION['employee_id']);
 
             </div>
         </section>
+        <div class="tab-content">
+        </div>
     </main>
 
     <script src="addCard.js"></script>
