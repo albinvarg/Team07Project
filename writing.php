@@ -48,16 +48,13 @@ function addRole($employee_id, $role) {
     }
 }
 
-function newTask($task_id, $employee_id, $description, $topic, $date) {
+function newTask($task_id, $employee_id, $name, $description, $topic, $date) {
   $status = 'not started';
     $file = fopen("tasks.csv", "a"); //append new lines
     if ($file !== false) {
-        $task_data = [$task_id, $employee_id, $description, $topic, $date, $status];
+        $task_data = [$task_id, $employee_id, $name, $description, $topic, $date, $status];
         fputcsv($file, $task_data);
         fclose($file);
-        echo "Task added";
-    } else {
-        echo "Failed to open file";
     }
 }
 
@@ -107,6 +104,3 @@ function updateTaskStatus($task_id, $status) {
   updateTask($task_id, $task);
 }
 
-addRole(2, false);
-addRole(3, false);
-addRole(4, false);

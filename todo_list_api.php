@@ -8,6 +8,7 @@ header("Content-Type: application/json; charset=UTF-8");
 //header("Access-Control-Allow-Methods: POST");
 
 require_once('./todo.php');
+require_once('./get_user_info.php');
 
 /*
 // Check if the request method is POST
@@ -35,15 +36,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  */
 
 // Set headers to allow CORS and JSON response
+session_start();
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
 // Check if the required parameters are present
-if (isset($_GET['employee_id'])) {
-    $employee_id = htmlspecialchars($_GET['employee_id']);
+if (isset($_SESSION['employee_id'])) {
+  $employee_id = $_SESSION['employee_id'];
+
 
     // Example response
-    $response = getUserTasks($employee_id);
+  $response = getUserTasks($employee_id);
+  $role = getRoleById($employee_id);
+
+    $response['role'] = $role;
 
     // Send a JSON response
     echo json_encode($response);

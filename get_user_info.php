@@ -13,6 +13,13 @@ function getTeamMembersById($employee_id) {
   return $members;
 }
 
+function getNameById($id) {
+  $employees = getEmployeesById();
+  $forename = $employees[$id]['forename'];
+  $surname = $employees[$id]['surname'];
+
+  return $forename . '  ' . $surname;
+}
 
 //INCOMPLETE - don't use
 //get employee id from their full name
@@ -73,9 +80,25 @@ function getTasksById() {
 function getPasswordByEmail($email) {
   $registrations = read_csv('email', 'registrations.csv');
 
-  if ($registrations[$email]) {
+  if (isset($registrations[$email]) && $registrations[$email]) {
     return $registrations[$email]['password'];
   }
 
+  return false;
+}
+
+function getRoleById($id) {
+  $roles = read_csv('employee_id', 'roles.csv');
+
+  return $roles[$id]['role'];
+}
+
+function getRoleByEmail($email){
+  $roles = read_csv('employee_id', 'roles.csv');
+
+  if ($roles[getIDByEmail($email)]) {
+    return $roles[getIDByEmail($email)]['role'];
+  }
+  
   return false;
 }
