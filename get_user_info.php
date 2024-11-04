@@ -13,6 +13,13 @@ function getTeamMembersById($employee_id) {
   return $members;
 }
 
+function getNameById($id) {
+  $employees = getEmployeesById();
+  $forename = $employees[$id]['forename'];
+  $surname = $employees[$id]['surname'];
+
+  return $forename . '  ' . $surname;
+}
 
 //INCOMPLETE - don't use
 //get employee id from their full name

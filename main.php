@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <?php
+require_once('./get_user_info.php');
 session_start();
 if (!isset($_SESSION['employee_id'])) {
   header('Location: ./login.php');
   exit();
 }
 
-echo $_SESSION['employee_id'];
+$name = getNameById($_SESSION['employee_id']);
 ?>
 <html lang="en">
 <head>
@@ -24,7 +25,7 @@ echo $_SESSION['employee_id'];
     <header class="header">
 
     <nav class="navbar">
-       <a href="#home" class="navbar-logo">Done & Dusted</a> <!-- this is where the logo/name will go -->
+    <a href="#home" class="navbar-logo"><?php echo $name ?></a> <!-- this is where the logo/name will go -->
 
        <div class="navbar-right">
 

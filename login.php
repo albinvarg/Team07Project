@@ -3,16 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popup Switch</title>
+    <title>Login</title>
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <!-- Button to open login popup -->
-    <button id="signupBtn">
-        <img src="signup-icon.png" alt="Signup Icon">
-    </button>
-
 <?php
     session_start();
     require_once('./read.php');
