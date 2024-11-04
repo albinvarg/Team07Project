@@ -13,9 +13,11 @@
         <img src="signup-icon.png" alt="Signup Icon">
     </button>
 
-    <?php
+<?php
+    session_start();
     require_once('./read.php');
     require_once('./writing.php');
+    require_once('./get_user_info.php');
 
     // Checks if the user inputted a valid email and its corresponding password
     function validInputs($inpEmail, $inpPword) {
@@ -43,6 +45,18 @@
         return true;
     }
 
+    function validLogin($email, $pword) {
+      $registrations = read_csv('email', './registrations.csv');
+
+      if (isset($registrations[$email])) {
+        if ($registrations[$email]['password'] == $pword) {
+          return true;
+        }
+      }
+      return false;
+
+    }
+
     // Calls the function to validate user inputs after the form is submitted
     if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['submit'])) {
 
@@ -51,6 +65,12 @@
             $email = $_POST['email'];
             $pword = $_POST['password'];
             $validLogin = validInputs($email, $pword);
+            if (validLogin($email, $pword)) {
+              $id = getIdByEmail($email);
+              $_SESSION["employee_id"] = $id;
+              header("Location: ./main.php");
+              exit();
+            }
         }
         elseif(isset($_POST['form_name']) && $_POST['form_name'] === 'signup'){
             $email = $_POST['signupEmail'];

@@ -5,7 +5,7 @@ function openPopUp(event) {
     document.getElementById("new-card-pop").style.display = "flex";
 
     // Set currentColumn to the parent column of the clicked "Add a card" button
-    currentColumn = event.target.closest(".column");
+    //currentColumn = event.target.closest(".column");
 }
 
 // Function to close the pop-up
@@ -19,10 +19,38 @@ function addCard() {
     const taskName = document.getElementById("taskName").value;
     const taskDate = document.getElementById("taskDate").value;
     const taskDescription = document.getElementById("description").value;
-    console.log(taskName);
-    console.log(taskDate);
+    const taskCategory = document.getElementById("category").value;
+    // console.log(taskName);
+    // console.log(taskDate);
 
-    if (taskName && taskDate&& taskDescription && currentColumn) {
+    if (taskName && taskDate&& taskDescription && taskCategory) {
+        // post the task data to the api
+        fetch("./add_card_api.php", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: taskName,
+            date: taskDate,
+            description: taskDescription,
+            category: taskCategory
+          }
+      )
+      })
+        .then(response => {
+          if (!response.ok) csonsole.error("respoonse not ok");
+          return response.json();
+        })
+        .then(data => {
+          console.log("POST Response:", data);
+        })
+        .catch(error => {
+          console.error('Fetch error:', error);
+        });
+
+      /*
+
         const newCard = document.createElement("div");
         newCard.className = "card";
         
@@ -46,8 +74,7 @@ function addCard() {
         // Close the pop-up and reset the form
         closePopUp();
         document.getElementById("cardForm").reset();
-
-    
+    */
     }
 }
 

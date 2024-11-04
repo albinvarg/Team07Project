@@ -3,7 +3,7 @@ async function fetchProgress(id) {
     // Employee output is array of tasks
 
     //const response = await fetch(`/Team07Project/todo_list_api.php?employee_id=${id}`)
-    const response = await fetch(`./todo_list_api.php?employee_id=${id}`)
+    const response = await fetch(`./todo_list_api.php?employee_id=${id}`);
     const taskData = await response.json();
     console.log(taskData);
 
@@ -53,6 +53,12 @@ async function fetchProgress(id) {
 
 }
 
+async function fetchManagerProgress(id) {
+  
+  const response = await fetch(`./todo_list_api?employee_id=${id}`);
+  const taskData = await response.json();
 
-fetchMemberProgress(1);
-// fetchManagerProgress(0);
+  
+  
+}
+

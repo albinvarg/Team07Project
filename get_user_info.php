@@ -56,6 +56,7 @@ function getIDByName($forename, $surname) {
 function getIDByEmail($email) {
   $employees = read_csv('email', 'employees.csv');
 
+  print_r($employees);
   return $employees[$email]['employee_id'];
 }
 

@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if (!isset($_SESSION['employee_id'])) {
+  header('Location: ./login.php');
+  exit();
+}
+
+echo $_SESSION['employee_id'];
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,7 +50,7 @@
             <i class="fa fa-user"></i>
                 <div class="profile-menu">
                     <span class="username">username</span>
-                    <a href="#logout">Logout</a>
+                    <a href="logout.php">Logout</a>
                 </div>
             </div>
 
