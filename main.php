@@ -25,7 +25,7 @@ $name = getNameById($_SESSION['employee_id']);
     <header class="header">
 
     <nav class="navbar">
-    <a href="#home" class="navbar-logo"><?php echo $name ?></a> <!-- this is where the logo/name will go -->
+    <a href="#home" class="navbar-logo">Done & Dusted</a> <!-- this is where the logo/name will go -->
 
        <div class="navbar-right">
 
@@ -50,7 +50,7 @@ $name = getNameById($_SESSION['employee_id']);
             <div class="profile-icon">
             <i class="fa fa-user"></i>
                 <div class="profile-menu">
-                    <span class="username">username</span>
+                    <span class="username"><?php echo $name ?></span>
                     <a href="logout.php">Logout</a>
                 </div>
             </div>
