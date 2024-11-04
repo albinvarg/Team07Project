@@ -19,6 +19,7 @@
         if(getPasswordByEmail($inpEmail) == $inpPword){
             return true;
         }
+        echo "<script>alert('INCORRECT LOGIN');</script>";
         return false;
     }
 
