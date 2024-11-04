@@ -1,11 +1,21 @@
-async function fetchProgress(id) {
+async function fetchProgress() {
     // Manager output is a dict of employees : array of tasks
     // Employee output is array of tasks
 
     //const response = await fetch(`/Team07Project/todo_list_api.php?employee_id=${id}`)
-    const response = await fetch(`./todo_list_api.php?employee_id=${id}`);
-    const taskData = await response.json();
-    console.log(taskData);
+var taskData;
+const response = fetch(`./todo_list_api.php`)
+.then(response => {
+if (!response.ok) console.error('network response not ok');
+  return response.json();
+})
+.then(data => {
+  var taskData = data;
+  console.log(data);
+})
+.catch(error => {
+  console.error('Error with fetch operation');
+});
 
     // Individual
     // const totalTasks = taskData.length;
@@ -62,3 +72,4 @@ async function fetchManagerProgress(id) {
   
 }
 
+fetchProgress();
