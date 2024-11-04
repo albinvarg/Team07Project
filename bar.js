@@ -19,11 +19,11 @@ async function fetchProgress(id) {
 
     for (const key in taskData) {
         totalTasks += taskData[key].length;
-        completedTasks += taskData[key].filter(task => task.status === "started").length;
+        completedTasks += taskData[key].filter(task => task.status === "'completed'").length;
     }
 
     const percentage = (completedTasks == 0) ?  0 : completedTasks / totalTasks
-    // const percentage = 0.9
+    // const percentage = 0.9;
     console.log(totalTasks);
     console.log(completedTasks);
     
