@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <?php
+require_once('./get_user_info.php');
 session_start();
 if (!isset($_SESSION['employee_id'])) {
   header('Location: ./login.php');
   exit();
 }
 
-echo $_SESSION['employee_id'];
+$name = getNameById($_SESSION['employee_id']);
+
+echo '<h1> Welcome ' . $name . '</h1>';
 ?>
 <html lang="en">
 <head>
