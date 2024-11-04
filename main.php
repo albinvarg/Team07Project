@@ -8,8 +8,6 @@ if (!isset($_SESSION['employee_id'])) {
 }
 
 $name = getNameById($_SESSION['employee_id']);
-
-echo '<h1> Welcome ' . $name . '</h1>';
 ?>
 <html lang="en">
 <head>
@@ -27,7 +25,7 @@ echo '<h1> Welcome ' . $name . '</h1>';
     <header class="header">
 
     <nav class="navbar">
-       <a href="#home" class="navbar-logo">Done & Dusted</a> <!-- this is where the logo/name will go -->
+    <a href="#home" class="navbar-logo"><?php echo $name ?></a> <!-- this is where the logo/name will go -->
 
        <div class="navbar-right">
 

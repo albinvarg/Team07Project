@@ -52,7 +52,7 @@ function newTask($task_id, $employee_id, $name, $description, $topic, $date) {
   $status = 'not started';
     $file = fopen("tasks.csv", "a"); //append new lines
     if ($file !== false) {
-        $task_data = [$task_id, $employee_id, $description, $topic, $date, $status];
+        $task_data = [$task_id, $employee_id, $name, $description, $topic, $date, $status];
         fputcsv($file, $task_data);
         fclose($file);
     }
