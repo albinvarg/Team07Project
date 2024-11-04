@@ -39,9 +39,14 @@
         for ($lineNum = 0; $lineNum < count($employeeArray); $lineNum++) {
             if($employeeArray[$lineNum]['email'] == $inpEmail){
                 // Checks password strength and the email is an employees
-                if(getRoleByEmail($inpEmail) == "member" && strlen($inpPword) > 7 && preg_match('/[A-Z]/', $inpPword) && preg_match('/[a-z]/', $inpPword) &&  preg_match('/[\W_]/', $inpPword)){
-                    return true;
-                }
+
+               // $userId = getRol
+               /* if(getRoleById($userId) == "member" && strlen($inpPword) > 7 && preg_match('/[A-Z]/', $inpPword) && preg_match('/[a-z]/', $inpPword) &&  preg_match('/[\W_]/', $inpPword)){
+                */
+                return true;
+                
+                    
+
             }
         }
         return false;
@@ -54,7 +59,8 @@
         if(isset($_POST['form_name']) && $_POST['form_name'] === 'login'){
             $email = $_POST['email'];
             $pword = $_POST['password'];
-            if(validLoginInputs($email, $pword)){$id = getIdByEmail($email);
+            if(validLoginInputs($email, $pword)){
+                $id = getIdByEmail($email);
                 $_SESSION["employee_id"] = $id;
                 header('Location: main.php'); // Redirects from login in page to main page
                 exit;

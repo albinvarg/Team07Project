@@ -93,12 +93,3 @@ function getRoleById($id) {
   return $roles[$id]['role'];
 }
 
-function getRoleByEmail($email){
-  $roles = read_csv('employee_id', 'roles.csv');
-
-  if ($roles[getIDByEmail($email)]) {
-    return $roles[getIDByEmail($email)]['role'];
-  }
-  
-  return false;
-}
