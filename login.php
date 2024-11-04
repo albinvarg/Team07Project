@@ -30,6 +30,7 @@
         // Check if the inputted email has already been used to sign up
         for ($lineNum = 0; $lineNum < count($registrationArray); $lineNum++) {
             if($registrationArray[$lineNum]['email'] == $inpEmail){
+                echo "<script>alert('EMAIL HAS ALREADY BEEN USED');</script>";
                 return false;
             }
         }
@@ -37,20 +38,18 @@
         // Checks if the email is in the employees.csv file
         for ($lineNum = 0; $lineNum < count($employeeArray); $lineNum++) {
             if($employeeArray[$lineNum]['email'] == $inpEmail){
+
                 // Checks password strength and the email is an employees
-
-                //$ans2 = getRoleById($userId);
-                $ans1 = getIDByEmail($inpEmail);
-               /* if(getRoleById($userId) == "member" && strlen($inpPword) > 7 && preg_match('/[A-Z]/', $inpPword) && preg_match('/[a-z]/', $inpPword) &&  preg_match('/[\W_]/', $inpPword)){
-                */
-                echo "<script type='text/javascript'>alert(".json_encode($ans1).");</script>";
-
-                return true;
-                
-                    
-
+                if(getRoleById(getIDByEmail($inpEmail)) == "member" && strlen($inpPword) > 7 && preg_match('/[A-Z]/', $inpPword) && preg_match('/[a-z]/', $inpPword) &&  preg_match('/[\W_]/', $inpPword)){
+                    return true;
+                }else{
+                    echo "<script>alert('PASSWORD IS WEAK');</script>";
+                    return false;
+                }
             }
         }
+
+        echo "<script>alert('USE AN EMPLOYEE EMAIL');</script>";
         return false;
     }
 
@@ -61,6 +60,7 @@
         if(isset($_POST['form_name']) && $_POST['form_name'] === 'login'){
             $email = $_POST['email'];
             $pword = $_POST['password'];
+
             if(validLoginInputs($email, $pword)){
                 $id = getIdByEmail($email);
                 $_SESSION["employee_id"] = $id;
@@ -71,8 +71,8 @@
         elseif(isset($_POST['form_name']) && $_POST['form_name'] === 'signup'){
             $email = $_POST['signupEmail'];
             $pword = $_POST['signupPassword'];
-            $validSignup = valdiSignupInputs($email, $pword);
-            if($validSignup){
+
+            if(valdiSignupInputs($email, $pword)){
                 addRegistration($email, $pword);
             }
         }
