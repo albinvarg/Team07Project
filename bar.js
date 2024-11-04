@@ -1,75 +1,47 @@
-async function fetchProgress() {
-    // Manager output is a dict of employees : array of tasks
-    // Employee output is array of tasks
 
-    //const response = await fetch(`/Team07Project/todo_list_api.php?employee_id=${id}`)
-var taskData;
-const response = fetch(`./todo_list_api.php`)
-.then(response => {
-if (!response.ok) console.error('network response not ok');
-  return response.json();
-})
-.then(data => {
-  var taskData = data;
-  console.log(data);
-})
-.catch(error => {
-  console.error('Error with fetch operation');
-});
-
-    // Individual
-    // const totalTasks = taskData.length;
-    // const completedTasks = taskData.filter(task => task.status === "started").length;
+function calculateProgress() {
     
-    // const percentage = (completedTasks == 0) ?  0 : completedTasks / totalTasks
-    // console.log(percentage * 100);
+// select the columns in order To Do, Doing, and Done
+    const toDoTasks = document.querySelectorAll('#to-do-column .card');
+    const doingTasks = document.querySelectorAll('#doing-column .card');
+    const doneTasks = document.querySelectorAll('#done-column .card');
 
-    // Total
-    var totalTasks = 0;
-    var completedTasks = 0;
+// get the total number of tasks
+    const totalTasks = toDoTasks.length + doingTasks.length + doneTasks.length;
 
-    for (const key in taskData) {
-      if (key === "role") {
-        continue;
-      }
-      totalTasks++;
-      if (taskData[key].status === "'completed'") {
-        completedTasks++;
-      }
+// count the number of tasks completed
+    const completedTasks = doneTasks.length;
+
+// calculate the tasks' progress percentage
+    let progressPercentage = 0;
+    if (totalTasks > 0) {
+        progressPercentage = (completedTasks / totalTasks) * 100;
     }
 
-
-    const percentage = (completedTasks == 0) ?  0 : completedTasks / totalTasks
-    // const percentage = 0.9
-    console.log(totalTasks);
-    console.log(completedTasks);
-
-    console.log(percentage * 100);
-
-    const percentageDisplay = document.getElementById('progress-percentage');
-    percentageDisplay.textContent = (Math.round(percentage * 100)) + "%";
-
+// change the progress bar and percentage display
     const progressBar = document.getElementById('progress-bar');
-    progressBar.style.width = (Math.round(percentage * 100)) + "%";
+    const progressText = document.getElementById('progress-percentage');
 
-    if (percentage < 0.4) {
-        progressBar.style.backgroundColor = '#ff1100';
-    } else if (percentage < 0.7) {
-        progressBar.style.backgroundColor = '#ff7300';
+// change the width of the progress bar based on the percentage
+    progressBar.style.width = progressPercentage + '%';
+
+// manipulates the colour of the progress bar based on percentage
+    if (progressPercentage === 0) {
+    // no task started
+        progressBar.style.backgroundColor = 'red';
+    } else if (progressPercentage <= 49) {
+    // less than 50% completed
+        progressBar.style.backgroundColor = 'orange';
+    } else if (progressPercentage > 49 && progressPercentage < 100) {
+    // between 50% and 99%
+        progressBar.style.backgroundColor = 'yellow';
     } else {
-        progressBar.style.backgroundColor = '#55ff00';
+    // 100% completed
+        progressBar.style.backgroundColor = 'green';
     }
 
-
+    progressText.textContent = Math.round(progressPercentage) + '% ';
 }
 
-async function fetchManagerProgress(id) {
-  
-  const response = await fetch(`./todo_list_api?employee_id=${id}`);
-  const taskData = await response.json();
-
-  
-  
-}
-
-fetchProgress();
+// call the calculateProgress function
+document.addEventListener('DOMContentLoaded', calculateProgress);

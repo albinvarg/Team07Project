@@ -21,7 +21,6 @@ $name = getNameById($_SESSION['employee_id']);
 
 
 <body>
-<script src="bar.js"></script>
     <header class="header">
 
     <nav class="navbar">
@@ -151,8 +150,13 @@ $name = getNameById($_SESSION['employee_id']);
 
             </div>
         </section>
+        <div class="tab-content">
+        </div>
     </main>
 
     <script src="addCard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="graph.js"></script>
+    <script src="bar.js"></script>
 </body>
 </html>
