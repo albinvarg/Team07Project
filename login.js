@@ -36,12 +36,4 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     });
 
-    // Close popups when clicking outside the popup content
-    window.onclick = function(event) {
-        if (event.target === loginPopup) {
-            loginPopup.style.display = 'none';
-        } else if (event.target === signupPopup) {
-            signupPopup.style.display = 'none';
-        }
-    };
 });
