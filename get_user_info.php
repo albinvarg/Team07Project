@@ -73,7 +73,7 @@ function getTasksById() {
 function getPasswordByEmail($email) {
   $registrations = read_csv('email', 'registrations.csv');
 
-  if ($registrations[$email]) {
+  if (isset($registrations[$email]) && $registrations[$email]) {
     return $registrations[$email]['password'];
   }
 
@@ -84,4 +84,14 @@ function getRoleById($id) {
   $roles = read_csv('employee_id', 'roles.csv');
 
   return $roles[$id]['role'];
+}
+
+function getRoleByEmail($email){
+  $roles = read_csv('employee_id', 'roles.csv');
+
+  if ($roles[getIDByEmail($email)]) {
+    return $roles[getIDByEmail($email)]['role'];
+  }
+  
+  return false;
 }

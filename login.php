@@ -20,41 +20,36 @@
     require_once('./get_user_info.php');
 
     // Checks if the user inputted a valid email and its corresponding password
-    function validInputs($inpEmail, $inpPword) {
-        $registrationArray = csvToArray("registrations.csv");
-
-        // Loops through registration.csv
-        for ($lineNum = 0; $lineNum < count($registrationArray); $lineNum++) {
-            if($registrationArray[$lineNum]['email'] == $inpEmail && $registrationArray[$lineNum]['password'] == $inpPword){
-                return true;
-            }
+    // Checks if the user inputted a valid email and its corresponding password
+    function validLoginInputs($inpEmail, $inpPword) {
+        if(getPasswordByEmail($inpEmail) == $inpPword){
+            return true;
         }
         return false;
     }
 
-    // Checks if the user inputted a unique email
-    function uniqueEmail($inpEmail) {
-        $registrationArray = csvToArray("registrations.csv");
+    // Checks if the inputted email is linked to an employee and the password is strong
+    function valdiSignupInputs($inpEmail, $inpPword) {
+        $employeeArray = csvToArray("./employees.csv");
+        $registrationArray = csvToArray("./registrations.csv");
 
-        // Loops through registration.csv
+        // Check if the inputted email has already been used to sign up
         for ($lineNum = 0; $lineNum < count($registrationArray); $lineNum++) {
             if($registrationArray[$lineNum]['email'] == $inpEmail){
                 return false;
             }
         }
-        return true;
-    }
 
-    function validLogin($email, $pword) {
-      $registrations = read_csv('email', './registrations.csv');
-
-      if (isset($registrations[$email])) {
-        if ($registrations[$email]['password'] == $pword) {
-          return true;
+        // Checks if the email is in the employees.csv file
+        for ($lineNum = 0; $lineNum < count($employeeArray); $lineNum++) {
+            if($employeeArray[$lineNum]['email'] == $inpEmail){
+                // Checks password strength and the email is an employees
+                if(getRoleByEmail($inpEmail) == "member" && strlen($inpPword) > 7 && preg_match('/[A-Z]/', $inpPword) && preg_match('/[a-z]/', $inpPword) &&  preg_match('/[\W_]/', $inpPword)){
+                    return true;
+                }
+            }
         }
-      }
-      return false;
-
+        return false;
     }
 
     // Calls the function to validate user inputs after the form is submitted
@@ -64,18 +59,16 @@
         if(isset($_POST['form_name']) && $_POST['form_name'] === 'login'){
             $email = $_POST['email'];
             $pword = $_POST['password'];
-            $validLogin = validInputs($email, $pword);
-            if (validLogin($email, $pword)) {
-              $id = getIdByEmail($email);
-              $_SESSION["employee_id"] = $id;
-              header("Location: ./main.php");
-              exit();
+            if(validLoginInputs($email, $pword)){$id = getIdByEmail($email);
+                $_SESSION["employee_id"] = $id;
+                header('Location: main.php'); // Redirects from login in page to main page
+                exit;
             }
         }
         elseif(isset($_POST['form_name']) && $_POST['form_name'] === 'signup'){
             $email = $_POST['signupEmail'];
             $pword = $_POST['signupPassword'];
-            $validSignup = uniqueEmail($email);
+            $validSignup = valdiSignupInputs($email, $pword);
             if($validSignup){
                 addRegistration($email, $pword);
             }
