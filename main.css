@@ -339,6 +339,17 @@ body{
     background-color: #218838;
 }
 
+.tab-content {
+    display: grid;
+    width: 40%;
+    height: 40%;
+    background-color: #ffffffcc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: auto;
+    margin-left: auto;
+}
 
 /* Progress checker styling */
 .progress-checker {
